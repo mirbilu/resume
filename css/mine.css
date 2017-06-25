@@ -115,23 +115,25 @@ nav {
     border-radius: 50%;
 }
 
-.control{
-	display: inline-block;
+.control {
+    display: inline-block;
     /*background-color: white;*/
     height: 400px;
     width: 50px;
     position: relative;
 }
 
-.leftspace{
-	float: left;
+.leftspace {
+    float: left;
     bottom: 300px;
 }
 
-.rightspace{
-	float: right;
+.rightspace {
+    float: right;
     bottom: 300px;
 }
+
+
 /*走马灯效果*/
 
 .wapper {
@@ -266,13 +268,13 @@ nav {
     text-align: center;
 }
 
-.item img{
-	width: 400px;
-	height: 180px;
+.item img {
+    width: 400px;
+    height: 180px;
 }
 
-.item span{
-	height: 15px;
+.item span {
+    height: 15px;
 }
 
 .itemOne {
@@ -311,7 +313,6 @@ nav {
 
 .offertype {
     height: 192px;
-    line-height: 182px;
     width: 180px;
     display: inline-block;
     margin: 0 10px;
@@ -322,15 +323,26 @@ nav {
     overflow: hidden;
 }
 
+.offertype img {
+    margin-top: 30px;
+}
+
 .specificOffer {
     height: 190px;
     width: 180px;
     background-color: black;
     opacity: 0.7;
     position: relative;
-    top: -182px;
+    top: -158px;
     border-radius: 15px;
     display: none;
+}
+
+.specificOffer span{
+    position: absolute;
+    left: 0;
+    top: 62px;
+    width: 175px;
 }
 
 .liuyan {
@@ -357,7 +369,7 @@ nav {
 
 
 /*.connect-part:first-child{
-	margin-right:54px;
+    margin-right:54px;
 }*/
 
 .barcode {
