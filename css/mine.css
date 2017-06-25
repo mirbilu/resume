@@ -1,0 +1,470 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+/*头部样式*/
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+nav {
+    background-color: #b1b1b1;
+    height: 40px;
+    opacity: 0.7;
+    overflow: hidden;
+    line-height: 40px;
+}
+
+.left {
+    float: left;
+    margin-left: 35px;
+}
+
+.left img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.right {
+    float: right;
+    margin-right: 35px;
+}
+
+.right a {
+    color: white;
+    text-decoration: none;
+}
+
+.right a:hover {
+    color: green;
+}
+
+.right span i {
+    margin: 0 10px;
+}
+
+
+/*主体样式*/
+
+.showpage {
+    text-align: center;
+    color: white;
+    /*display: none;*/
+}
+
+.showpage:first-child {
+    display: block;
+    background: url('../img/think.png');
+    background-size: cover;
+}
+
+.myself {
+    position: relative;
+    height: 400px;
+    text-align: center;
+}
+
+.firstpage h1 {
+    margin-top: 90px;
+    font-family: cursive, 'Lato', sans-serif;
+    color: white;
+}
+
+.rollBox {
+    /*position: absolute;*/
+    height: 200px;
+    width: 600px;
+    line-height: 300px;
+    /*overflow: hidden;*/
+}
+
+.rollcontent {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    /*position: absolute;*/
+    /*border: 1px solid black;*/
+    animation: showInOut 5s ease .3s;
+}
+
+@keyframes showInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.showpic img {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+}
+
+.control{
+	display: inline-block;
+    /*background-color: white;*/
+    height: 400px;
+    width: 50px;
+    position: relative;
+}
+
+.leftspace{
+	float: left;
+    bottom: 300px;
+}
+
+.rightspace{
+	float: right;
+    bottom: 300px;
+}
+/*走马灯效果*/
+
+.wapper {
+    -webkit-perspective: 800;
+    width: 800px;
+    height: 200px;
+    margin: 100px auto;
+}
+
+@-webkit-keyframes right1 {
+    0% {
+        -webkit-transform: rotateY(0deg);
+    }
+    100% {
+        -webkit-transform: rotateY(60deg);
+    }
+}
+
+@-webkit-keyframes right2 {
+    0% {
+        -webkit-transform: rotateY(60deg);
+    }
+    100% {
+        -webkit-transform: rotateY(120deg);
+    }
+}
+
+@-webkit-keyframes right3 {
+    0% {
+        -webkit-transform: rotateY(120deg);
+    }
+    100% {
+        -webkit-transform: rotateY(180deg);
+    }
+}
+
+@-webkit-keyframes right4 {
+    0% {
+        -webkit-transform: rotateY(180deg);
+    }
+    100% {
+        -webkit-transform: rotateY(240deg);
+    }
+}
+
+@-webkit-keyframes right5 {
+    0% {
+        -webkit-transform: rotateY(240deg);
+    }
+    100% {
+        -webkit-transform: rotateY(300deg);
+    }
+}
+
+@-webkit-keyframes right6 {
+    0% {
+        -webkit-transform: rotateY(300deg);
+    }
+    100% {
+        -webkit-transform: rotateY(360deg);
+    }
+}
+
+@-webkit-keyframes left1 {
+    0% {
+        -webkit-transform: rotateY(0deg);
+    }
+    100% {
+        -webkit-transform: rotateY(-60deg);
+    }
+}
+
+@-webkit-keyframes left2 {
+    0% {
+        -webkit-transform: rotateY(-60deg);
+    }
+    100% {
+        -webkit-transform: rotateY(-120deg);
+    }
+}
+
+@-webkit-keyframes left3 {
+    0% {
+        -webkit-transform: rotateY(-120deg);
+    }
+    100% {
+        -webkit-transform: rotateY(-180deg);
+    }
+}
+
+@-webkit-keyframes left4 {
+    0% {
+        -webkit-transform: rotateY(-180deg);
+    }
+    100% {
+        -webkit-transform: rotateY(-240deg);
+    }
+}
+
+@-webkit-keyframes left5 {
+    0% {
+        -webkit-transform: rotateY(-240deg);
+    }
+    100% {
+        -webkit-transform: rotateY(-300deg);
+    }
+}
+
+@-webkit-keyframes left6 {
+    0% {
+        -webkit-transform: rotateY(-300deg);
+    }
+    100% {
+        -webkit-transform: rotateY(-360deg);
+    }
+}
+
+.rotate {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.item {
+    -webkit-transform-origin: center;
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    background: none;
+    text-align: center;
+}
+
+.item img{
+	width: 400px;
+	height: 180px;
+}
+
+.item span{
+	height: 15px;
+}
+
+.itemOne {
+    left: -100px;
+    -webkit-transform: translateZ(173px) rotateY(-60deg);
+}
+
+.itemTwo {
+    left: 200px;
+    -webkit-transform: translateZ(346px);
+}
+
+.itemThree {
+    left: 500px;
+    -webkit-transform: translateZ(173px) rotateY(60deg);
+}
+
+.itemFour {
+    left: 500px;
+    -webkit-transform: translateZ(-173px) rotateY(120deg);
+}
+
+.itemFive {
+    left: 200px;
+    -webkit-transform: translateZ(-346px) rotateY(180deg);
+}
+
+.itemSix {
+    left: -100px;
+    -webkit-transform: translateZ(-173px) rotateY(-120deg);
+}
+
+.offer {
+    height: 500px;
+}
+
+.offertype {
+    height: 192px;
+    line-height: 182px;
+    width: 180px;
+    display: inline-block;
+    margin: 0 10px;
+    background-color: white;
+    opacity: 0.7;
+    border: 1px solid white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.specificOffer {
+    height: 190px;
+    width: 180px;
+    background-color: black;
+    opacity: 0.7;
+    position: relative;
+    top: -182px;
+    border-radius: 15px;
+    display: none;
+}
+
+.liuyan {
+    height: 410px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+
+/*.connect {
+    position: relative;
+    bottom: 200px;
+}*/
+
+.connect-message {
+    margin: 10px 5px;
+}
+
+.connect-part {
+    display: inline-block;
+    width: 100px;
+    margin: 0 30px;
+}
+
+
+/*.connect-part:first-child{
+	margin-right:54px;
+}*/
+
+.barcode {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    top: -170px;
+    display: none;
+}
+
+
+/*其他*/
+
+.goTop {
+    position: fixed;
+    right: 15px;
+    bottom: 50px;
+}
+
+.sidebar {
+    height: 150px;
+    width: 150px;
+    /*background-color: white;*/
+    position: fixed;
+    bottom: 200px;
+    right: -100px;
+    opacity: 0.3;
+}
+
+.picture {
+    position: absolute;
+    transform: translateY(50px);
+}
+
+.pic2 {
+    transform-origin: 75px 25px;
+    transform: translateY(50px) rotate(72deg);
+    animation-fill-mode: ;
+}
+
+.pic3 {
+    transform-origin: 75px 25px;
+    transform: translateY(50px) rotate(144deg);
+}
+
+.pic4 {
+    transform-origin: 75px 25px;
+    transform: translateY(50px) rotate(216deg);
+}
+
+.pic5 {
+    transform-origin: 75px 25px;
+    transform: translateY(50px) rotate(288deg);
+}
+
+.picture img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+@keyframes roll_0 {
+    0% {
+        transform: none;
+    }
+    100% {
+        transform-origin: center;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes roll_1 {
+    0% {
+        transform: none;
+    }
+    100% {
+        transform-origin: center;
+        transform: rotate(72deg);
+    }
+}
+
+@keyframes roll_2 {
+    0% {
+        transform: none;
+    }
+    100% {
+        transform-origin: center;
+        transform: rotate(144deg);
+    }
+}
+
+@keyframes roll_3 {
+    0% {
+        transform: none;
+    }
+    100% {
+        transform-origin: center;
+        transform: rotate(216deg);
+    }
+}
+
+@keyframes roll_4 {
+    0% {
+        transform: none;
+    }
+    100% {
+        transform-origin: center;
+        transform: rotate(288deg);
+    }
+}
