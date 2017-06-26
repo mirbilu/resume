@@ -60,7 +60,6 @@ nav {
 .showpage {
     text-align: center;
     color: white;
-    /*display: none;*/
 }
 
 .showpage:first-child {
@@ -74,27 +73,23 @@ nav {
     height: 400px;
     text-align: center;
 }
-
+/*首页样式*/
 .firstpage h1 {
     margin-top: 90px;
     font-family: cursive, 'Lato', sans-serif;
     color: white;
 }
-
+/*经历页样式*/
 .rollBox {
-    /*position: absolute;*/
     height: 200px;
     width: 600px;
     line-height: 300px;
-    /*overflow: hidden;*/
 }
 
 .rollcontent {
     display: block;
     height: 30px;
     line-height: 30px;
-    /*position: absolute;*/
-    /*border: 1px solid black;*/
     animation: showInOut 5s ease .3s;
 }
 
@@ -115,9 +110,9 @@ nav {
     border-radius: 50%;
 }
 
+/*作品展示*/
 .control {
     display: inline-block;
-    /*background-color: white;*/
     height: 400px;
     width: 50px;
     position: relative;
@@ -141,6 +136,11 @@ nav {
     width: 800px;
     height: 200px;
     margin: 100px auto;
+}
+
+.wapper a{
+    color: white;
+    text-decoration: none;
 }
 
 @-webkit-keyframes right1 {
