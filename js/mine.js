@@ -21,12 +21,13 @@ $(document).ready(function() {
             url: 'server/getadvice.php',
             datatype: 'json',
             success: function(data) {
-                data.forEach(function(item, index, array) {
-                    var $auther = $('<div>').addClass('advice-auther').text("访客："+item.auther);
-                    var $content = $('<div>').addClass('advice-content').text("留言："+item.advice);
+                for (var index = 0; index <= data.length - 1; index++) {
+                    var item = data[index];
+                    var $auther = $('<div>').addClass('advice-auther').text("访客：" + item.auther);
+                    var $content = $('<div>').addClass('advice-content').text("留言：" + item.advice);
                     var $advice = $('<div>').addClass('advice').append($auther, $content);
                     $('.advices').append($advice);
-                })
+                }
             }
         });
         if (showtype == 'back') {
@@ -171,11 +172,12 @@ $(document).ready(function() {
             url: 'server/getprojects.php',
             datatype: 'json',
             success: function(data) {
-                data.forEach(function(item, index, array) {
+                for (var index = 0; index <= data.length - 1; index++) {
+                    var item = data[index];
                     $('.item').eq(index).children('img').attr('src', item.picurl);
                     $('.item').eq(index).children('a').attr('href', item.link);
                     $('.item').eq(index).children('a').text(item.name);
-                })
+                }
             }
         })
         // 左右按钮鼠标覆盖旋转
