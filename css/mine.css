@@ -9,6 +9,7 @@ body {
 }
 
 
+
 /*头部样式*/
 
 header {
@@ -55,6 +56,7 @@ nav {
 }
 
 
+
 /*主体样式*/
 
 .showpage {
@@ -73,13 +75,19 @@ nav {
     height: 400px;
     text-align: center;
 }
+
+
 /*首页样式*/
+
 .firstpage h1 {
     margin-top: 90px;
     font-family: cursive, 'Lato', sans-serif;
     color: white;
 }
+
+
 /*经历页样式*/
+
 .rollBox {
     height: 200px;
     width: 600px;
@@ -91,16 +99,22 @@ nav {
     height: 30px;
     line-height: 30px;
     animation: showInOut 5s ease .3s;
+    -webkit-animation: showInOut 5s ease .3s;
+    -moz-animation: showInOut 5s ease .3s;
 }
 
 @keyframes showInOut {
     0% {
         opacity: 0;
         transform: translateX(-200px);
+        -webkit-transform: translateX(-200px);
+        -moz-transform: translateX(-200px);
     }
     100% {
         opacity: 1;
         transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
     }
 }
 
@@ -110,7 +124,9 @@ nav {
     border-radius: 50%;
 }
 
+
 /*作品展示*/
+
 .control {
     display: inline-block;
     height: 400px;
@@ -129,16 +145,19 @@ nav {
 }
 
 
+
 /*走马灯效果*/
 
 .wapper {
-    -webkit-perspective: 800;
+    perspective: 800px;
+    -webkit-perspective: 800px;
+    -moz-perspective:800px;
     width: 800px;
     height: 200px;
     margin: 100px auto;
 }
 
-.wapper a{
+.wapper a {
     color: white;
     text-decoration: none;
 }
@@ -146,114 +165,140 @@ nav {
 @-webkit-keyframes right1 {
     0% {
         -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
     }
     100% {
         -webkit-transform: rotateY(60deg);
+        -moz-transform: rotateY(60deg);
     }
 }
 
 @-webkit-keyframes right2 {
     0% {
         -webkit-transform: rotateY(60deg);
+        -moz-transform: rotateY(60deg);
     }
     100% {
         -webkit-transform: rotateY(120deg);
+        -moz-transform: rotateY(120deg);
     }
 }
 
 @-webkit-keyframes right3 {
     0% {
         -webkit-transform: rotateY(120deg);
+        -moz-transform: rotateY(120deg);
     }
     100% {
         -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
     }
 }
 
 @-webkit-keyframes right4 {
     0% {
         -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
     }
     100% {
         -webkit-transform: rotateY(240deg);
+        -moz-transform: rotateY(240deg);
     }
 }
 
 @-webkit-keyframes right5 {
     0% {
         -webkit-transform: rotateY(240deg);
+        -moz-transform: rotateY(240deg);
     }
     100% {
         -webkit-transform: rotateY(300deg);
+        -moz-transform: rotateY(300deg);
     }
 }
 
 @-webkit-keyframes right6 {
     0% {
         -webkit-transform: rotateY(300deg);
+        -moz-transform: rotateY(300deg);
     }
     100% {
         -webkit-transform: rotateY(360deg);
+        -moz-transform: rotateY(360deg);
     }
 }
 
 @-webkit-keyframes left1 {
     0% {
         -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
     }
     100% {
         -webkit-transform: rotateY(-60deg);
+        -moz-transform: rotateY(-60deg);
     }
 }
 
 @-webkit-keyframes left2 {
     0% {
         -webkit-transform: rotateY(-60deg);
+        -moz-transform: rotateY(-60deg);
     }
     100% {
         -webkit-transform: rotateY(-120deg);
+        -moz-transform: rotateY(-120deg);
     }
 }
 
 @-webkit-keyframes left3 {
     0% {
         -webkit-transform: rotateY(-120deg);
+        -moz-transform: rotateY(-120deg);
     }
     100% {
         -webkit-transform: rotateY(-180deg);
+        -moz-transform: rotateY(-180deg);
     }
 }
 
 @-webkit-keyframes left4 {
     0% {
         -webkit-transform: rotateY(-180deg);
+        -moz-transform: rotateY(-180deg);
     }
     100% {
         -webkit-transform: rotateY(-240deg);
+        -moz-transform: rotateY(-240deg);
     }
 }
 
 @-webkit-keyframes left5 {
     0% {
         -webkit-transform: rotateY(-240deg);
+        -moz-transform: rotateY(-240deg);
     }
     100% {
         -webkit-transform: rotateY(-300deg);
+        -moz-transform: rotateY(-300deg);
     }
 }
 
 @-webkit-keyframes left6 {
     0% {
         -webkit-transform: rotateY(-300deg);
+        -moz-transform: rotateY(-300deg);
     }
     100% {
         -webkit-transform: rotateY(-360deg);
+        -moz-transform: rotateY(-360deg);
     }
 }
 
 .rotate {
     -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
     -webkit-transform-origin: center;
+    -moz-transform-origin: center;
     width: 100%;
     height: 100%;
     position: relative;
@@ -261,6 +306,7 @@ nav {
 
 .item {
     -webkit-transform-origin: center;
+    -moz-transform-origin: center;
     width: 400px;
     height: 200px;
     position: absolute;
@@ -280,31 +326,37 @@ nav {
 .itemOne {
     left: -100px;
     -webkit-transform: translateZ(173px) rotateY(-60deg);
+    -moz-transform: translateZ(173px) rotateY(-60deg);
 }
 
 .itemTwo {
     left: 200px;
     -webkit-transform: translateZ(346px);
+    -moz-transform: translateZ(346px);
 }
 
 .itemThree {
     left: 500px;
     -webkit-transform: translateZ(173px) rotateY(60deg);
+    -moz-transform: translateZ(173px) rotateY(60deg);
 }
 
 .itemFour {
     left: 500px;
     -webkit-transform: translateZ(-173px) rotateY(120deg);
+    -moz-transform: translateZ(-173px) rotateY(120deg);
 }
 
 .itemFive {
     left: 200px;
     -webkit-transform: translateZ(-346px) rotateY(180deg);
+    -moz-transform: translateZ(-346px) rotateY(180deg);
 }
 
 .itemSix {
     left: -100px;
     -webkit-transform: translateZ(-173px) rotateY(-120deg);
+    -moz-transform: translateZ(-173px) rotateY(-120deg);
 }
 
 .offer {
@@ -338,7 +390,7 @@ nav {
     display: none;
 }
 
-.specificOffer span{
+.specificOffer span {
     position: absolute;
     left: 0;
     top: 62px;
@@ -369,19 +421,21 @@ nav {
     display: none;
 }
 
+
 /*留言板展开效果*/
-.adviceshow{
+
+.adviceshow {
     display: inline-block;
     float: left;
     position: fixed;
     left: -200px;
     bottom: 0;
     z-index: 99;
-    background-color: rgba(250,250,250,0.5);
+    background-color: rgba(250, 250, 250, 0.5);
     width: 200px;
 }
 
-.advice-side-button{
+.advice-side-button {
     padding-top: 15px;
     display: inline-block;
     float: right;
@@ -389,24 +443,25 @@ nav {
     right: -25px;
     width: 25px;
     height: 100px;
-    background-color: rgba(250,250,250,0.5);
+    background-color: rgba(250, 250, 250, 0.5);
 }
 
-.advice-side-button:hover{
+.advice-side-button:hover {
     color: green;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.advices{
+.advices {
     width: 100%;
 }
 
-.advice{ 
+.advice {
     height: 100px;
     width: 100%;
-    border-bottom:.5px solid #867a7a;
+    border-bottom: .5px solid #867a7a;
     background-color: #9e9797;
 }
+
 
 /*其他*/
 
@@ -428,27 +483,44 @@ nav {
 .picture {
     position: absolute;
     transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
 }
 
 .pic2 {
     transform-origin: 75px 25px;
     transform: translateY(50px) rotate(72deg);
-    animation-fill-mode: ;
+    -webkit-transform-origin: 75px 25px;
+    -webkit-transform: translateY(50px) rotate(72deg);
+    -moz-transform-origin: 75px 25px;
+    -moz-transform: translateY(50px) rotate(72deg);
 }
 
 .pic3 {
     transform-origin: 75px 25px;
     transform: translateY(50px) rotate(144deg);
+    -webkit-transform-origin: 75px 25px;
+    -webkit-transform: translateY(50px) rotate(144deg);
+    -moz-transform-origin: 75px 25px;
+    -moz-transform: translateY(50px) rotate(144deg);
 }
 
 .pic4 {
     transform-origin: 75px 25px;
     transform: translateY(50px) rotate(216deg);
+    -webkit-transform-origin: 75px 25px;
+    -webkit-transform: translateY(50px) rotate(216deg);
+    -moz-transform-origin: 75px 25px;
+    -moz-transform: translateY(50px) rotate(216deg);
 }
 
 .pic5 {
     transform-origin: 75px 25px;
     transform: translateY(50px) rotate(288deg);
+    -webkit-transform-origin: 75px 25px;
+    -webkit-transform: translateY(50px) rotate(288deg);
+    -moz-transform-origin: 75px 25px;
+    -moz-transform: translateY(50px) rotate(288deg);
 }
 
 .picture img {
@@ -460,49 +532,79 @@ nav {
 @keyframes roll_0 {
     0% {
         transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;
     }
     100% {
         transform-origin: center;
         transform: rotate(360deg);
+        -webkit-transform-origin: center;
+        -webkit-transform: rotate(360deg);
+        -moz-transform-origin: center;
+        -moz-transform: rotate(360deg);
     }
 }
 
 @keyframes roll_1 {
     0% {
         transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;
     }
     100% {
         transform-origin: center;
         transform: rotate(72deg);
+        -webkit-transform-origin: center;
+        -webkit-transform: rotate(72deg);
+        -moz-transform-origin: center;
+        -moz-transform: rotate(72deg);
     }
 }
 
 @keyframes roll_2 {
     0% {
         transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;
     }
     100% {
         transform-origin: center;
         transform: rotate(144deg);
+        -webkit-transform-origin: center;
+        -webkit-transform: rotate(144deg);
+        -moz-transform-origin: center;
+        -moz-transform: rotate(144deg);
     }
 }
 
 @keyframes roll_3 {
     0% {
         transform: none;
+        -webkit-transform: none;
+        transform: none;
     }
     100% {
         transform-origin: center;
         transform: rotate(216deg);
+        -webkit-transform-origin: center;
+        -webkit-transform: rotate(216deg);
+        -moz-transform-origin: center;
+        -moz-transform: rotate(216deg);
     }
 }
 
 @keyframes roll_4 {
     0% {
         transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;
     }
     100% {
         transform-origin: center;
         transform: rotate(288deg);
+        -webkit-transform-origin: center;
+        -webkit-transform: rotate(288deg);
+        -moz-transform-origin: center;
+        -moz-transform: rotate(288deg);
     }
 }
