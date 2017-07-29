@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="font/iconfont.css">
-    <link rel="stylesheet" href="css/mine.css">
+    <link media="screen and (min-width:760px)" rel="stylesheet" href="css/mine-pc.css">
+    <link media="screen and (max-width:760px)" rel="stylesheet" href="css/mine-phone.css">
     <link rel="shortcut icon" href="img/Web.ico" type="image/x-icon ">
     <script src="https://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="js/jquery.mousewheel.js" type="text/javascript"></script>
@@ -18,7 +19,7 @@
     <header>
         <nav>
             <div class="left">
-                <img src="img/Web_big.png" alt="admin">
+                <img src="img/Web_normal.png" alt="admin">
             </div>
             <div class="right">
                 <span class="mainpage"><i class="iconfont icon-mine"></i><a href="#">首页</a></span>
@@ -26,6 +27,10 @@
                 <span class="page3"><i class="iconfont icon-brush"></i><a href="#">作品展示</a></span>
                 <span class="page4"><i class="iconfont icon-like"></i><a href="#">技能掌握</a></span>
                 <span class="page5"><i class="iconfont icon-message"></i><a href="#">联系方法</a></span>
+            </div>
+            <div class="nav-menu row">
+                <button class="menu-button btn btn-default btn-xs col-xs-1"><i class="iconfont icon-mine"></i></button>
+                <span class="col-xs-8" style="text-align:center">Mirbilu's resume</span>
             </div>
         </nav>
     </header>
@@ -60,14 +65,11 @@
             <div class="myself container">
                 <h1>作品展示</h1>
                 <div class="wapper">
-                    <!--场景-->
                     <div class="rotate">
-                        <!--容器-->
                         <div class="item itemOne">
                             <img src="img/jikexueyuan.png" alt="">
                             <a href="https://mirbilu.github.io/JKXYFirstPage/jkxy.html" target="_blank">极客学院首页</a>
                         </div>
-                        <!--六个面-->
                         <div class="item itemTwo">
                             <img src="img/jindong.png" alt="">
                             <a href="https://mirbilu.github.io/jindong-ionic/www/" target="_blank">京东商城购物车手机版</a>
@@ -176,7 +178,10 @@
             </div>
         </div>
     </div>
-    <div class="goTop">
+    <div class="pagechange">
+        
+    </div>
+    <!-- <div class="goTop">
         <img src="img/up_arrow.png" alt="backtop">
     </div>
     <div class="sidebar">
@@ -202,7 +207,7 @@
         </div>
         <h4>留言栏</h4>
         <div class="advices"></div>
-    </div>
+    </div> -->
 </body>
 
 </html>

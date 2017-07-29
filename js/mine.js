@@ -9,9 +9,24 @@ $(document).ready(function() {
     var showpic = winWidth / 2 - 90 + "px";
     var project = 0;
     var showtype = 'back';
+    var showpage = 1;
+    var showheight = 0;
+    var changecount= 0;
+    $("body").css('height', winHeight);
+    // 屏幕尺寸变化样式控制
+    if (winWidth < 760) {
+        $(".left").addClass('nav-logo-small');
+        $(".left img").css('display', 'none');
+        $(".right").css('display', 'none');
+        $(".nav-menu").css('display', 'inline-block');
+        $("header").css('width', winWidth);
+        $("nav").css('height', '30px').css('line-height', '30px');
+        $(".sidebar").css('display', 'none');
+    };
     $(".showpage").height(winHeight);
     $(".myself").css('top', distancex);
     $(".showpic").css('left', showpic);
+    // 侧边栏设置
     $(".adviceshow").css('height', winHeight - 40);
     $(".advice-side-button").css('top', winHeight / 2);
     $(".advice-side-button").bind('click', function() {
@@ -21,6 +36,7 @@ $(document).ready(function() {
             url: 'server/getadvice.php',
             datatype: 'json',
             success: function(data) {
+                console.log(data);
                 for (var index = 0; index <= data.length - 1; index++) {
                     var item = data[index];
                     var $auther = $('<div>').addClass('advice-auther').text("访客：" + item.auther);
@@ -54,33 +70,33 @@ $(document).ready(function() {
             showtype = 'back';
         }
     });
+    // pc端页面切换
     $(window).bind('mousewheel', function(event, delta) {
         var scrollHeight = $(window).scrollTop();
-        console.log(scrollHeight);
         if (count == 0) {
             if (shownumber < 4 && shownumber > 0) {
                 if (delta < 0) {
-                    $(".showpage").eq(shownumber).slideUp('slow');
+                    $(".showpage").eq(shownumber).hide();
                     shownumber++;
-                    $(".showpage").eq(shownumber).slideDown('slow');
+                    $(".showpage").eq(shownumber).show();
                 } else {
-                    $(".showpage").eq(shownumber).slideUp('slow');
+                    $(".showpage").eq(shownumber).hide();
                     shownumber--;
-                    $(".showpage").eq(shownumber).slideDown('slow');
+                    $(".showpage").eq(shownumber).show();
                 }
                 count = 1;
             } else if (shownumber == 4) {
                 if (delta > 0) {
-                    $(".showpage").eq(shownumber).slideUp('slow');
+                    $(".showpage").eq(shownumber).hide();
                     shownumber--;
-                    $(".showpage").eq(shownumber).slideDown('slow');
+                    $(".showpage").eq(shownumber).show();
                 }
                 count = 1;
             } else {
                 if (delta < 0) {
-                    $(".showpage").eq(shownumber).slideUp('slow');
+                    $(".showpage").eq(shownumber).hide();
                     shownumber++;
-                    $(".showpage").eq(shownumber).slideDown('slow');
+                    $(".showpage").eq(shownumber).show();
                 }
                 count = 1;
             };
@@ -89,21 +105,21 @@ $(document).ready(function() {
         };
         rollchange(shownumber);
     }); //滚动翻页
-    function pagechage(number) {
+    function pagechange(number) {
         var count = 0;
         if (number > shownumber) {
             count = number - shownumber;
             for (var i = 0; i < count; i++) {
-                $(".showpage").eq(shownumber).slideUp('slow');
+                $(".showpage").eq(shownumber).hide();
                 shownumber++;
-                $(".showpage").eq(shownumber).slideDown('slow');
+                $(".showpage").eq(shownumber).show();
             }
         } else if (number < shownumber) {
             count = shownumber - number;
             for (var i = 0; i < count; i++) {
-                $(".showpage").eq(shownumber).slideUp('slow');
+                $(".showpage").eq(shownumber).hide();
                 shownumber--;
-                $(".showpage").eq(shownumber).slideDown('slow');
+                $(".showpage").eq(shownumber).show();
             }
         }
         rollchange(shownumber);
@@ -127,29 +143,29 @@ $(document).ready(function() {
         $(".rollcontent").eq(i).css('animation-delay', delayT);
     } //滚动显示延迟
     $("#begin").click(function() {
-        pagechage(1);
+        pagechange(1);
     }); //开启旅程按钮功能
     $(".mainpage").click(function() {
-        pagechage(0);
+        pagechange(0);
     }); //导航条1按钮
     $(".introducepage").click(function() {
-        pagechage(1);
+        pagechange(1);
     }); //导航条2按钮
     $(".page3").click(function() {
-        pagechage(2);
+        pagechange(2);
     }); //导航条3按钮
     $(".page4").click(function() {
-        pagechage(3);
+        pagechange(3);
     }); //导航条4按钮
     $(".page5").click(function() {
-        pagechage(4);
+        pagechange(4);
     });
     // 返回顶部
     $(".goTop").click(function() {
         if (shownumber != 0) {
             $(window).scrollTop(0);
-            $(".showpage").eq(0).slideDown();
-            $(".showpage").eq(shownumber).slideUp();
+            $(".showpage").eq(0).show();
+            $(".showpage").eq(shownumber).hide();
             shownumber = 0;
             rollchange(0);
         }
@@ -168,19 +184,19 @@ $(document).ready(function() {
     });
     // 作品数据接收
     $.ajax({
-            type: 'get',
-            url: 'server/getprojects.php',
-            datatype: 'json',
-            success: function(data) {
-                for (var index = 0; index <= data.length - 1; index++) {
-                    var item = data[index];
-                    $('.item').eq(index).children('img').attr('src', item.picurl);
-                    $('.item').eq(index).children('a').attr('href', item.link);
-                    $('.item').eq(index).children('a').text(item.name);
-                }
+        type: 'get',
+        url: 'server/getprojects.php',
+        datatype: 'json',
+        success: function(data) {
+            for (var index = 0; index <= data.length - 1; index++) {
+                var item = data[index];
+                $('.item').eq(index).children('img').attr('src', item.picurl);
+                $('.item').eq(index).children('a').attr('href', item.link);
+                $('.item').eq(index).children('a').text(item.name);
             }
-        })
-        // 左右按钮鼠标覆盖旋转
+        }
+    })
+    // 左右按钮鼠标覆盖旋转
     $(".rightspace").bind('mouseover', function() {
         switch (project) {
             case 0:
@@ -255,5 +271,33 @@ $(document).ready(function() {
                 }
             }
         });
-    })
+    });
+    // 点击翻页
+    $(".pagechange").on('click', function() {
+        pagechange(showpage);
+        showpage++;
+        console.log(showpage);
+    });
+    $(".showCase").bind('touchstart', function(e) {
+        showheight = e.originalEvent.changedTouches[0].screenY;
+    });
+    $(".showCase").bind('touchmove', function(e) {
+        var moveheight = e.originalEvent.changedTouches[0].screenY - showheight;
+        var changelenth = winHeight / 12;
+        var reallenth = Math.abs(moveheight);
+        console.log(reallenth);
+        if (reallenth > changelenth) {
+            if (moveheight > 0) {
+                pagechange(showpage);
+                showpage--;
+                changecount=0;
+            } else {
+                pagechange(showpage);
+                showpage++;
+                changecount=0;
+            }
+        }else{
+            changecount=1;
+        }
+    });
 })

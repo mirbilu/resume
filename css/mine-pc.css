@@ -32,8 +32,6 @@ nav {
 }
 
 .left img {
-    height: 40px;
-    width: 40px;
     border-radius: 50%;
 }
 
@@ -55,7 +53,10 @@ nav {
     margin: 0 10px;
 }
 
-
+.nav-menu{
+    display: none;
+    float: left;
+}
 
 /*主体样式*/
 

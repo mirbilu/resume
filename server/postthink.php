@@ -1,6 +1,6 @@
 <?php 
 	header("Content-type:application/json;charset=utf-8");
-	$link = mysqli_connect('mysql.rdsm2ntalmdzv5t.rds.gz.baidubce.com','mirbilu','chenlin123','resume',3306);
+	$link = mysqli_connect('mirbilu.cn','mirbilu','chenlin123','resume',3306);
 	if ($link) {
 		$name= $_POST['newname'];
 		$connection = $_POST['newconnection'];
