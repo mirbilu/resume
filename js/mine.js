@@ -9,9 +9,9 @@ $(document).ready(function() {
     var showpic = winWidth / 2 - 90 + "px";
     var project = 0;
     var showtype = 'back';
-    var showpage = 1;
+    var showpage = 0;
     var showheight = 0;
-    var changecount= 0;
+    var changecount = 0;
     $("body").css('height', winHeight);
     // 屏幕尺寸变化样式控制
     if (winWidth < 760) {
@@ -76,27 +76,27 @@ $(document).ready(function() {
         if (count == 0) {
             if (shownumber < 4 && shownumber > 0) {
                 if (delta < 0) {
-                    $(".showpage").eq(shownumber).hide();
+                    $(".showpage").eq(shownumber).slideUp();
                     shownumber++;
-                    $(".showpage").eq(shownumber).show();
+                    $(".showpage").eq(shownumber).slideDown();
                 } else {
-                    $(".showpage").eq(shownumber).hide();
+                    $(".showpage").eq(shownumber).slideUp();
                     shownumber--;
-                    $(".showpage").eq(shownumber).show();
+                    $(".showpage").eq(shownumber).slideDown();
                 }
                 count = 1;
             } else if (shownumber == 4) {
                 if (delta > 0) {
-                    $(".showpage").eq(shownumber).hide();
+                    $(".showpage").eq(shownumber).slideUp();
                     shownumber--;
-                    $(".showpage").eq(shownumber).show();
+                    $(".showpage").eq(shownumber).slideDown();
                 }
                 count = 1;
             } else {
                 if (delta < 0) {
-                    $(".showpage").eq(shownumber).hide();
+                    $(".showpage").eq(shownumber).slideUp();
                     shownumber++;
-                    $(".showpage").eq(shownumber).show();
+                    $(".showpage").eq(shownumber).slideDown();
                 }
                 count = 1;
             };
@@ -110,16 +110,16 @@ $(document).ready(function() {
         if (number > shownumber) {
             count = number - shownumber;
             for (var i = 0; i < count; i++) {
-                $(".showpage").eq(shownumber).hide();
+                $(".showpage").eq(shownumber).slideUp();
                 shownumber++;
-                $(".showpage").eq(shownumber).show();
+                $(".showpage").eq(shownumber).slideDown();
             }
         } else if (number < shownumber) {
             count = shownumber - number;
             for (var i = 0; i < count; i++) {
-                $(".showpage").eq(shownumber).hide();
+                $(".showpage").eq(shownumber).slideUp();
                 shownumber--;
-                $(".showpage").eq(shownumber).show();
+                $(".showpage").eq(shownumber).slideDown();
             }
         }
         rollchange(shownumber);
@@ -164,8 +164,8 @@ $(document).ready(function() {
     $(".goTop").click(function() {
         if (shownumber != 0) {
             $(window).scrollTop(0);
-            $(".showpage").eq(0).show();
-            $(".showpage").eq(shownumber).hide();
+            $(".showpage").eq(0).slideDown();
+            $(".showpage").eq(shownumber).slideUp();
             shownumber = 0;
             rollchange(0);
         }
@@ -281,23 +281,24 @@ $(document).ready(function() {
     $(".showCase").bind('touchstart', function(e) {
         showheight = e.originalEvent.changedTouches[0].screenY;
     });
-    $(".showCase").bind('touchmove', function(e) {
+    $(".showCase").bind('touchend', function(e) {
         var moveheight = e.originalEvent.changedTouches[0].screenY - showheight;
         var changelenth = winHeight / 12;
         var reallenth = Math.abs(moveheight);
-        console.log(reallenth);
-        if (reallenth > changelenth) {
+        if (reallenth > changelenth && showpage < 4) {
             if (moveheight > 0) {
-                pagechange(showpage);
                 showpage--;
-                changecount=0;
-            } else {
                 pagechange(showpage);
+                $(window).scrollTop(0);
+                changecount = 0;
+            } else {
                 showpage++;
-                changecount=0;
+                pagechange(showpage);
+                $(window).scrollTop(0);
+                changecount = 0;
             }
-        }else{
-            changecount=1;
-        }
+        } else {
+            changecount = 1;
+        };
     });
 })
