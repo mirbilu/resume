@@ -291,7 +291,7 @@ $(document).ready(function() {
                 pagechange(showpage);
                 $(window).scrollTop(0);
                 changecount = 0;
-            } else {
+            } else if(moveheight <0) {
                 showpage++;
                 pagechange(showpage);
                 $(window).scrollTop(0);
@@ -304,5 +304,39 @@ $(document).ready(function() {
     // 照片展开
     $(".showpic img").bind('click',function(){
         $(".showpic img").css('position','absolute').css('height',winHeight).css('width',winWidth).css('top','0').css('border-radius','0');
+    });
+    // 作品切换
+    $(".rotate").bind('touchstart',function(e){
+        itemwidth = e.originalEvent.changedTouches[0].screenX;
+    });
+    var itemcount = 0
+    $(".rotate").bind('touchend',function(e){
+        var movewidth = e.originalEvent.changedTouches[0].screenX - itemwidth;
+        var changewidth = winWidth / 12;
+        var realwidth = Math.abs(movewidth);
+        console.log(movewidth);
+        if (realwidth>changewidth) {
+            if (movewidth>0) {
+                $(".item").eq(itemcount).hide();
+                if (itemcount == 5) {
+                    itemcount = 0;
+                }else{
+                    itemcount ++;
+                };
+                $(".item").eq(itemcount).show();
+            }else if(movewidth<0){
+                $(".item").eq(itemcount).hide();
+                if (itemcount == 0) {
+                    itemcount = 5;
+                }else{
+                    itemcount --;
+                };
+                $(".item").eq(itemcount).show();
+            }
+        }
+    });
+    $(".offertype").bind('click',function(){
+        $(".specificOffer").css('width',winWidth*0.9);
+        $(this).children(".specificOffer").css('display','inline-block');
     })
 })

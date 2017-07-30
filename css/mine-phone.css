@@ -45,7 +45,7 @@ header {
 }
 
 .myself {
-	height: 70%;
+	height: 60%;
     position: relative;
     text-align: center;
 }
@@ -74,6 +74,8 @@ header {
 }
 
 .item{
+	background-color: white;
+	border-radius: 5px;
 	height: 100%;
 	width: 92%;
 	position: absolute;
@@ -81,8 +83,32 @@ header {
 }
 
 .item img {
-	height: 100%;
+	height: 95%;
 	width: 100%;
+}
+
+/*技能*/
+.offertype {
+	display: inline-block;
+	width: 24%;
+	margin-bottom: 50px;
+}
+
+.offertype img{
+	height: 40px;
+	width: 40px;
+}
+
+.specificOffer{
+	color: black;
+    padding: 2px;
+    display: none;
+    position: absolute;
+    left: 5%;
+    bottom: 42%;
+    height: 50px;
+    background-color: white;
+    border-radius: 9px;	
 }
 
 
