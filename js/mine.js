@@ -21,7 +21,7 @@ $(document).ready(function() {
         $(".nav-menu").css('display', 'inline-block');
         $("header").css('width', winWidth);
         $("nav").css('height', '30px').css('line-height', '30px');
-        $(".sidebar").css('display', 'none');
+        $("#reviewDetails").attr('cols','39');
     };
     $(".showpage").height(winHeight);
     $(".myself").css('top', distancex);
@@ -274,9 +274,8 @@ $(document).ready(function() {
     });
     // 点击翻页
     $(".pagechange").on('click', function() {
-        pagechange(showpage);
         showpage++;
-        console.log(showpage);
+        pagechange(showpage);
     });
     $(".showCase").bind('touchstart', function(e) {
         showheight = e.originalEvent.changedTouches[0].screenY;
