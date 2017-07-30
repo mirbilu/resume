@@ -285,7 +285,7 @@ $(document).ready(function() {
         var moveheight = e.originalEvent.changedTouches[0].screenY - showheight;
         var changelenth = winHeight / 12;
         var reallenth = Math.abs(moveheight);
-        if (reallenth > changelenth && showpage < 4) {
+        if (reallenth > changelenth && showpage < 4&& showpage>=0) {
             if (moveheight > 0) {
                 showpage--;
                 pagechange(showpage);
@@ -301,4 +301,8 @@ $(document).ready(function() {
             changecount = 1;
         };
     });
+    // 照片展开
+    $(".showpic img").bind('click',function(){
+        $(".showpic img").css('position','absolute').css('height',winHeight).css('width',winWidth).css('top','0').css('border-radius','0');
+    })
 })
