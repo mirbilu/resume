@@ -12,6 +12,14 @@ $(document).ready(function() {
     var showpage = 0;
     var showheight = 0;
     var changecount = 0;
+    function screenset() {
+        winHeight = $(window).height();
+        winWidth = $(window).width();
+        Height = winHeight + "px";
+        distancex = winHeight / 2 - 200 + "px";
+        distancey = winWidth / 2 - 200 + "px";
+        showpic = winWidth / 2 - 90 + "px";
+    };
     $("body").css('height', winHeight);
     // 屏幕尺寸变化样式控制
     if (winWidth < 760) {
@@ -20,8 +28,8 @@ $(document).ready(function() {
         $(".right").css('display', 'none');
         $(".nav-menu").css('display', 'inline-block');
         $("header").css('width', winWidth);
-        $("nav").css('height', '30px').css('line-height', '30px');
-        $("#reviewDetails").attr('cols','39');
+        $("na").css('height', '30px').css('line-height', '30px');
+        $("#reviewDetails").attr('cols', '39');
     };
     $(".showpage").height(winHeight);
     $(".myself").css('top', distancex);
@@ -284,13 +292,15 @@ $(document).ready(function() {
         var moveheight = e.originalEvent.changedTouches[0].screenY - showheight;
         var changelenth = winHeight / 12;
         var reallenth = Math.abs(moveheight);
-        if (reallenth > changelenth && showpage < 4&& showpage>=0) {
+        if (reallenth > changelenth && showpage < 4 && showpage >= 0) {
             if (moveheight > 0) {
+                screenset();
                 showpage--;
                 pagechange(showpage);
                 $(window).scrollTop(0);
                 changecount = 0;
-            } else if(moveheight <0) {
+            } else if (moveheight < 0) {
+                screenset();
                 showpage++;
                 pagechange(showpage);
                 $(window).scrollTop(0);
@@ -301,41 +311,41 @@ $(document).ready(function() {
         };
     });
     // 照片展开
-    $(".showpic img").bind('click',function(){
-        $(".showpic img").css('position','absolute').css('height',winHeight).css('width',winWidth).css('top','0').css('border-radius','0');
+    $(".showpic img").bind('click', function() {
+        $(".showpic img").css('position', 'absolute').css('height', winHeight).css('width', winWidth).css('top', '0').css('border-radius', '0');
     });
     // 作品切换
-    $(".rotate").bind('touchstart',function(e){
+    $(".rotate").bind('touchstart', function(e) {
         itemwidth = e.originalEvent.changedTouches[0].screenX;
     });
     var itemcount = 0
-    $(".rotate").bind('touchend',function(e){
+    $(".rotate").bind('touchend', function(e) {
         var movewidth = e.originalEvent.changedTouches[0].screenX - itemwidth;
         var changewidth = winWidth / 12;
         var realwidth = Math.abs(movewidth);
         console.log(movewidth);
-        if (realwidth>changewidth) {
-            if (movewidth>0) {
+        if (realwidth > changewidth) {
+            if (movewidth > 0) {
                 $(".item").eq(itemcount).hide();
                 if (itemcount == 5) {
                     itemcount = 0;
-                }else{
-                    itemcount ++;
+                } else {
+                    itemcount++;
                 };
                 $(".item").eq(itemcount).show();
-            }else if(movewidth<0){
+            } else if (movewidth < 0) {
                 $(".item").eq(itemcount).hide();
                 if (itemcount == 0) {
                     itemcount = 5;
-                }else{
-                    itemcount --;
+                } else {
+                    itemcount--;
                 };
                 $(".item").eq(itemcount).show();
             }
         }
     });
-    $(".offertype").bind('click',function(){
-        $(".specificOffer").css('width',winWidth*0.9);
-        $(this).children(".specificOffer").css('display','inline-block');
+    $(".offertype").bind('click', function() {
+        $(".specificOffer").css('width', winWidth * 0.9);
+        $(this).children(".specificOffer").css('display', 'inline-block');
     })
 })
