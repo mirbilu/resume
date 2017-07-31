@@ -12,6 +12,7 @@ $(document).ready(function() {
     var showpage = 0;
     var showheight = 0;
     var changecount = 0;
+
     function screenset() {
         winHeight = $(window).height();
         winWidth = $(window).width();
@@ -292,22 +293,31 @@ $(document).ready(function() {
         var moveheight = e.originalEvent.changedTouches[0].screenY - showheight;
         var changelenth = winHeight / 12;
         var reallenth = Math.abs(moveheight);
-        if (reallenth > changelenth && showpage < 4 && showpage >= 0) {
+        if (reallenth > changelenth) {
             if (moveheight > 0) {
                 screenset();
-                showpage--;
-                pagechange(showpage);
-                $(window).scrollTop(0);
-                changecount = 0;
+                showpage = showpage - winHeight;
+                $(".wapper").animate({ fontsize: showpage }, {
+                    duration: 500,
+                    easing: "linear",
+                    queue: false,
+                    step: function(now, fx) {
+                        $(window).scrollTop(now);
+                    },
+                });
+                $(window).scrollTop(showpage);
             } else if (moveheight < 0) {
                 screenset();
-                showpage++;
-                pagechange(showpage);
-                $(window).scrollTop(0);
-                changecount = 0;
+                showpage = showpage + winHeight;
+                $(".wapper").animate({ fontsize: showpage }, {
+                    duration: 500,
+                    easing: "linear",
+                    queue: false,
+                    step: function(now, fx) {
+                        $(window).scrollTop(now);
+                    },
+                });
             }
-        } else {
-            changecount = 1;
         };
     });
     // 照片展开
