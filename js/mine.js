@@ -136,15 +136,15 @@ $(document).ready(function() {
     } //点击翻页
     function rollchange(number) {
         if (number == 1) {
-            $(".sidebar").css('-webkit-animation', 'roll_1 1s ease .3s forwards').css('-moz-animation', 'roll_1 1s ease .3s forwards').css('animation', 'roll_1 1s ease .3s forwards');
+            $(".sidebar").attr('id','roll-one');
         } else if (number == 2) {
-            $(".sidebar").css('-webkit-animation', 'roll_2 1s ease .3s forwards').css('-moz-animation', 'roll_2 1s ease .3s forwards').css('animation', 'roll_2 1s ease .3s forwards');
+            $(".sidebar").attr('id','roll-two');
         } else if (number == 3) {
-            $(".sidebar").css('-webkit-animation', 'roll_3 1s ease .3s forwards').css('-moz-animation', 'roll_3 1s ease .3s forwards').css('animation', 'roll_3 1s ease .3s forwards');
+            $(".sidebar").attr('id','roll-three');
         } else if (number == 4) {
-            $(".sidebar").css('-webkit-animation', 'roll_4 1s ease .3s forwards').css('-moz-animation', 'roll_4 1s ease .3s forwards').css('animation', 'roll_4 1s ease .3s forwards');
+            $(".sidebar").attr('id','roll-four');
         } else {
-            $(".sidebar").css('-webkit-animation', 'roll_0 1s ease .3s forwards').css('-moz-animation', 'roll_0 1s ease .3s forwards').css('animation', 'roll_0 1s ease .3s forwards');
+            $(".sidebar").attr('id','roll-zero');
         }
     }
     for (var i = 0; i <= 2; i++) {
@@ -209,27 +209,27 @@ $(document).ready(function() {
     $(".rightspace").bind('mouseover', function() {
         switch (project) {
             case 0:
-                $(".rotate").css('-webkit-animation', 'right1 3s ease forwards').css('-moz-animation', 'right1 3s ease forwards').css('animation', 'right1 3s ease forwards');
+                $(".rotate").attr('id','right-one');
                 project++;
                 break;
             case 1:
-                $(".rotate").css('-webkit-animation', 'right2 3s ease forwards').css('-moz-animation', 'right2 3s ease forwards').css('animation', 'right2 3s ease forwards');
+                $(".rotate").attr('id','right-two');
                 project++;
                 break;
             case 2:
-                $(".rotate").css('-webkit-animation', 'right3 3s ease forwards').css('-moz-animation', 'right3 3s ease forwards').css('animation', 'right3 3s ease forwards');
+                $(".rotate").attr('id','right-three');
                 project++;
                 break;
             case 3:
-                $(".rotate").css('-webkit-animation', 'right4 3s ease forwards').css('-moz-animation', 'right4 3s ease forwards').css('animation', 'right4 3s ease forwards');
+                $(".rotate").attr('id','right-four');
                 project++;
                 break;
             case 4:
-                $(".rotate").css('-webkit-animation', 'right5 3s ease forwards').css('-moz-animation', 'right5 3s ease forwards').css('animation', 'right5 3s ease forwards');
+                $(".rotate").attr('id','right-five');
                 project++;
                 break;
             case 5:
-                $(".rotate").css('-webkit-animation', 'right6 3s ease forwards').css('-moz-animation', 'right6 3s ease forwards').css('animation', 'right6 3s ease forwards');
+                $(".rotate").attr('id','right-six');
                 project = 0;
                 break;
 
@@ -238,27 +238,27 @@ $(document).ready(function() {
     $(".leftspace").bind('mouseover', function() {
         switch (project) {
             case 0:
-                $(".rotate").css('animation', 'left1 3s ease forwards');
+                $(".rotate").attr('id','left-one');
                 project = 5;
                 break;
             case 1:
-                $(".rotate").css('animation', 'left6 3s ease forwards');
+                $(".rotate").attr('id','left-two');
                 project--;
                 break;
             case 2:
-                $(".rotate").css('animation', 'left5 3s ease forwards');
+                $(".rotate").attr('id','left-five');
                 project--;
                 break;
             case 3:
-                $(".rotate").css('animation', 'left4 3s ease forwards');
+                $(".rotate").attr('id','left-four');
                 project--;
                 break;
             case 4:
-                $(".rotate").css('animation', 'left3 3s ease forwards');
+                $(".rotate").attr('id','left-five');
                 project--;
                 break;
             case 5:
-                $(".rotate").css('animation', 'left2 3s ease forwards');
+                $(".rotate").attr('id','left-six');
                 project--;
                 break;
         }

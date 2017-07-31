@@ -163,6 +163,12 @@ nav {
     text-decoration: none;
 }
 
+#right-one{
+    animation:right1 3s ease forwards;
+    -webkit-animation:right1 3s ease forwards;
+    -moz-animation:right1 3s ease forwards; 
+}
+
 @-webkit-keyframes right1 {
     0% {
         -webkit-transform: rotateY(0deg);
@@ -172,6 +178,12 @@ nav {
         -webkit-transform: rotateY(60deg);
         -moz-transform: rotateY(60deg);
     }
+}
+
+#right-two{
+    animation:right2 3s ease forwards;
+    -webkit-animation:right2 3s ease forwards;
+    -moz-animation:right2 3s ease forwards; 
 }
 
 @-webkit-keyframes right2 {
@@ -185,6 +197,12 @@ nav {
     }
 }
 
+#right-three{
+    animation:right3 3s ease forwards;
+    -webkit-animation:right3 3s ease forwards;
+    -moz-animation:right3 3s ease forwards; 
+}
+
 @-webkit-keyframes right3 {
     0% {
         -webkit-transform: rotateY(120deg);
@@ -194,6 +212,12 @@ nav {
         -webkit-transform: rotateY(180deg);
         -moz-transform: rotateY(180deg);
     }
+}
+
+#right-four{
+    animation:right4 3s ease forwards;
+    -webkit-animation:right4 3s ease forwards;
+    -moz-animation:right4 3s ease forwards; 
 }
 
 @-webkit-keyframes right4 {
@@ -207,6 +231,12 @@ nav {
     }
 }
 
+#right-five{
+    animation:right5 3s ease forwards;
+    -webkit-animation:right5 3s ease forwards;
+    -moz-animation:right5 3s ease forwards; 
+}
+
 @-webkit-keyframes right5 {
     0% {
         -webkit-transform: rotateY(240deg);
@@ -216,6 +246,12 @@ nav {
         -webkit-transform: rotateY(300deg);
         -moz-transform: rotateY(300deg);
     }
+}
+
+#right-six{
+    animation:right6 3s ease forwards;
+    -webkit-animation:right6 3s ease forwards;
+    -moz-animation:right6 3s ease forwards; 
 }
 
 @-webkit-keyframes right6 {
@@ -229,6 +265,12 @@ nav {
     }
 }
 
+#left-one{
+    animation:left1 3s ease forwards;
+    -webkit-animation:left1 3s ease forwards;
+    -moz-animation:left1 3s ease forwards; 
+}
+
 @-webkit-keyframes left1 {
     0% {
         -webkit-transform: rotateY(0deg);
@@ -238,6 +280,12 @@ nav {
         -webkit-transform: rotateY(-60deg);
         -moz-transform: rotateY(-60deg);
     }
+}
+
+#left-two{
+    animation:left2 3s ease forwards;
+    -webkit-animation:left2 3s ease forwards;
+    -moz-animation:left2 3s ease forwards; 
 }
 
 @-webkit-keyframes left2 {
@@ -251,6 +299,12 @@ nav {
     }
 }
 
+#left-three{
+    animation:left3 3s ease forwards;
+    -webkit-animation:left3 3s ease forwards;
+    -moz-animation:left3 3s ease forwards; 
+}
+
 @-webkit-keyframes left3 {
     0% {
         -webkit-transform: rotateY(-120deg);
@@ -260,6 +314,12 @@ nav {
         -webkit-transform: rotateY(-180deg);
         -moz-transform: rotateY(-180deg);
     }
+}
+
+#left-four{
+    animation:left4 3s ease forwards;
+    -webkit-animation:left4 3s ease forwards;
+    -moz-animation:left4 3s ease forwards; 
 }
 
 @-webkit-keyframes left4 {
@@ -273,6 +333,12 @@ nav {
     }
 }
 
+#left-five{
+    animation:left5 3s ease forwards;
+    -webkit-animation:left5 3s ease forwards;
+    -moz-animation:left5 3s ease forwards; 
+}
+
 @-webkit-keyframes left5 {
     0% {
         -webkit-transform: rotateY(-240deg);
@@ -282,6 +348,12 @@ nav {
         -webkit-transform: rotateY(-300deg);
         -moz-transform: rotateY(-300deg);
     }
+}
+
+#left-six{
+    animation:left6 3s ease forwards;
+    -webkit-animation:left6 3s ease forwards;
+    -moz-animation:left6 3s ease forwards; 
 }
 
 @-webkit-keyframes left6 {
@@ -528,6 +600,36 @@ nav {
     border-radius: 50%;
     height: 50px;
     width: 50px;
+}
+
+#roll-one{
+    animation: roll_1 1s ease .3s forwards;
+    -webkit-animation: roll_1 1s ease .3s forwards;
+    -moz-animation: roll_1 1s ease .3s forwards;
+}
+
+#roll-two{
+    animation: roll_2 1s ease .3s forwards;
+    -webkit-animation: roll_2 1s ease .3s forwards;
+    -moz-animation: roll_2 1s ease .3s forwards;
+}
+
+#roll-three{
+    animation: roll_3 1s ease .3s forwards;
+    -webkit-animation: roll_3 1s ease .3s forwards;
+    -moz-animation: roll_3 1s ease .3s forwards;
+}
+
+#roll-four{
+    animation: roll_4 1s ease .3s forwards;
+    -webkit-animation: roll_4 1s ease .3s forwards;
+    -moz-animation: roll_4 1s ease .3s forwards;
+}
+
+#roll-zero{
+    animation: roll_0 1s ease .3s forwards;
+    -webkit-animation: roll_0 1s ease .3s forwards;
+    -moz-animation: roll_0 1s ease .3s forwards;
 }
 
 @keyframes roll_0 {
