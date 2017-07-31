@@ -136,15 +136,15 @@ $(document).ready(function() {
     } //点击翻页
     function rollchange(number) {
         if (number == 1) {
-            $(".sidebar").css('animation', 'roll_1 1s ease .3s forwards')
+            $(".sidebar").css('-webkit-animation', 'roll_1 1s ease .3s forwards').css('-moz-animation', 'roll_1 1s ease .3s forwards').css('animation', 'roll_1 1s ease .3s forwards');
         } else if (number == 2) {
-            $(".sidebar").css('animation', 'roll_2 1s ease .3s forwards')
+            $(".sidebar").css('-webkit-animation', 'roll_2 1s ease .3s forwards').css('-moz-animation', 'roll_2 1s ease .3s forwards').css('animation', 'roll_2 1s ease .3s forwards');
         } else if (number == 3) {
-            $(".sidebar").css('animation', 'roll_3 1s ease .3s forwards')
+            $(".sidebar").css('-webkit-animation', 'roll_3 1s ease .3s forwards').css('-moz-animation', 'roll_3 1s ease .3s forwards').css('animation', 'roll_3 1s ease .3s forwards');
         } else if (number == 4) {
-            $(".sidebar").css('animation', 'roll_4 1s ease .3s forwards')
+            $(".sidebar").css('-webkit-animation', 'roll_4 1s ease .3s forwards').css('-moz-animation', 'roll_4 1s ease .3s forwards').css('animation', 'roll_4 1s ease .3s forwards');
         } else {
-            $(".sidebar").css('animation', 'roll_0 1s ease .3s forwards')
+            $(".sidebar").css('-webkit-animation', 'roll_0 1s ease .3s forwards').css('-moz-animation', 'roll_0 1s ease .3s forwards').css('animation', 'roll_0 1s ease .3s forwards');
         }
     }
     for (var i = 0; i <= 2; i++) {
@@ -209,27 +209,27 @@ $(document).ready(function() {
     $(".rightspace").bind('mouseover', function() {
         switch (project) {
             case 0:
-                $(".rotate").css('animation', 'right1 3s ease forwards');
+                $(".rotate").css('-webkit-animation', 'right1 3s ease forwards').css('-moz-animation', 'right1 3s ease forwards').css('animation', 'right1 3s ease forwards');
                 project++;
                 break;
             case 1:
-                $(".rotate").css('animation', 'right2 3s ease forwards');
+                $(".rotate").css('-webkit-animation', 'right2 3s ease forwards').css('-moz-animation', 'right2 3s ease forwards').css('animation', 'right2 3s ease forwards');
                 project++;
                 break;
             case 2:
-                $(".rotate").css('animation', 'right3 3s ease forwards');
+                $(".rotate").css('-webkit-animation', 'right3 3s ease forwards').css('-moz-animation', 'right3 3s ease forwards').css('animation', 'right3 3s ease forwards');
                 project++;
                 break;
             case 3:
-                $(".rotate").css('animation', 'right4 3s ease forwards');
+                $(".rotate").css('-webkit-animation', 'right4 3s ease forwards').css('-moz-animation', 'right4 3s ease forwards').css('animation', 'right4 3s ease forwards');
                 project++;
                 break;
             case 4:
-                $(".rotate").css('animation', 'right5 3s ease forwards');
+                $(".rotate").css('-webkit-animation', 'right5 3s ease forwards').css('-moz-animation', 'right5 3s ease forwards').css('animation', 'right5 3s ease forwards');
                 project++;
                 break;
             case 5:
-                $(".rotate").css('animation', 'right6 3s ease forwards');
+                $(".rotate").css('-webkit-animation', 'right6 3s ease forwards').css('-moz-animation', 'right6 3s ease forwards').css('animation', 'right6 3s ease forwards');
                 project = 0;
                 break;
 
