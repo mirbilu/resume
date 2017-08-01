@@ -12,7 +12,6 @@ $(document).ready(function() {
     var showpage = 0;
     var showheight = 0;
     var changecount = 0;
-
     function screenset() {
         winHeight = $(window).height();
         winWidth = $(window).width();
@@ -20,6 +19,7 @@ $(document).ready(function() {
         distancex = winHeight / 2 - 200 + "px";
         distancey = winWidth / 2 - 200 + "px";
         showpic = winWidth / 2 - 90 + "px";
+        $(".showpage").height(winHeight);
     };
     $("body").css('height', winHeight);
     // 屏幕尺寸变化样式控制
