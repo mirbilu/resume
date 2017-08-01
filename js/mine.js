@@ -289,6 +289,9 @@ $(document).ready(function() {
     $(".showCase").bind('touchstart', function(e) {
         showheight = e.originalEvent.changedTouches[0].screenY;
     });
+    $(".showCase").bind('touchmove',function(e){
+        screenset();
+    })
     $(".showCase").bind('touchend', function(e) {
         var moveheight = e.originalEvent.changedTouches[0].screenY - showheight;
         var changelenth = winHeight / 12;
