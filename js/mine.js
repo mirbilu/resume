@@ -325,11 +325,11 @@ $(document).ready(function() {
         $(".showpic img").css('position', 'absolute').css('height', winHeight).css('width', winWidth).css('top', '0').css('border-radius', '0');
     });
     // 作品切换
-    $(".rotate").bind('touchstart', function(e) {
+    $(".item").bind('touchstart', function(e) {
         itemwidth = e.originalEvent.changedTouches[0].screenX;
     });
     var itemcount = 0
-    $(".rotate").bind('touchend', function(e) {
+    $(".item").bind('touchend', function(e) {
         var movewidth = e.originalEvent.changedTouches[0].screenX - itemwidth;
         var changewidth = winWidth / 12;
         var realwidth = Math.abs(movewidth);
@@ -352,14 +352,15 @@ $(document).ready(function() {
                 $(".item").eq(itemcount).css('display','block').css('transform','scale(1)');
             }
         }else{
-            // $(".item").eq(itemcount).css('display','block');
+            $(".item").eq(itemcount).css('display','block').css('z-index','1').css('transform','translateX(0)');
+            $(".item").eq(newitem).css('display','none').css('transform','translateX(0) scale(0)');
         }
     });
+    var newitem = 0
     $(".item").bind('touchmove',function(e){
         var movewidth = e.originalEvent.changedTouches[0].screenX- itemwidth;
         var changewidth = winWidth / 12;
-        var realwidth = Math.abs(movewidth);
-        var newitem = 0;
+        var realwidth = Math.abs(movewidth);;
         var scale = 0;
         $(".item").animate({ fontsize: movewidth }, {
                 duration: 100,
@@ -371,7 +372,7 @@ $(document).ready(function() {
                     }else if(movewidth < 0){
                         newitem =itemcount -1;
                     };
-                    scale = now / itemwidth;
+                    scale = Math.abs(now) / winWidth ;
                     $(".item").eq(newitem).css('display','block').css('transform','scale('+scale+')');
                     $(".item").eq(itemcount).css('z-index','9').css('transform','translateX(' + now + 'px)');
                     
