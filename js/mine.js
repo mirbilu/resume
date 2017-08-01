@@ -335,14 +335,14 @@ $(document).ready(function() {
         var realwidth = Math.abs(movewidth);
         if (realwidth > changewidth) {
             if (movewidth > 0) {
-                $(".item").eq(itemcount).css('display','none').css('z-index','1').css('transform','translateX(0)');
+                $(".item").eq(itemcount).css('display','none').css('long','0').css('z-index','1').css('transform','translateX(0) scale(0)');
                 if (itemcount == 5) {
                     itemcount = 0;
                 } else {
                     itemcount++;
                 };
-                $(".item").animate({fontsize:'1'},{
-                    duration:1000,
+                $(".item").eq(itemcount).animate({long:1},{
+                    duration:500,
                     easing:'linear',
                     queue:false,
                     step:function(now,fx){
@@ -350,14 +350,14 @@ $(document).ready(function() {
                     }
                 });
             } else if (movewidth < 0) {
-                $(".item").eq(itemcount).css('display','none').css('z-index','1').css('transform','translateX(0)');
+                $(".item").eq(itemcount).css('display','none').css('long','0').css('z-index','1').css('transform','translateX(0) scale(0)');
                 if (itemcount == 0) {
                     itemcount = 5;
                 } else {
                     itemcount--;
                 };
-                $(".item").animate({fontsize:'1'},{
-                    duration:1000,
+                $(".item").eq(itemcount).animate({long : 1},{
+                    duration:500,
                     easing:'linear',
                     queue:false,
                     step:function(now,fx){
@@ -376,7 +376,7 @@ $(document).ready(function() {
         var changewidth = winWidth / 12;
         var realwidth = Math.abs(movewidth);;
         var scale = 0;
-        $(".item").animate({ fontsize: movewidth }, {
+        $(".item").eq(itemcount).animate({ fontsize: movewidth }, {
                 duration: 100,
                 easing: "linear",
                 queue: false,
