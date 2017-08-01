@@ -333,29 +333,53 @@ $(document).ready(function() {
         var movewidth = e.originalEvent.changedTouches[0].screenX - itemwidth;
         var changewidth = winWidth / 12;
         var realwidth = Math.abs(movewidth);
-        console.log(movewidth);
         if (realwidth > changewidth) {
             if (movewidth > 0) {
-                $(".item").eq(itemcount).hide();
+                $(".item").eq(itemcount).css('display','none').css('z-index','1').css('transform','translateX(0)');
                 if (itemcount == 5) {
                     itemcount = 0;
                 } else {
                     itemcount++;
                 };
-                $(".item").eq(itemcount).show();
+                $(".item").eq(itemcount).css('display','block').css('transform','scale(1)');
             } else if (movewidth < 0) {
-                $(".item").eq(itemcount).hide();
+                $(".item").eq(itemcount).css('display','none').css('z-index','1').css('transform','translateX(0)');
                 if (itemcount == 0) {
                     itemcount = 5;
                 } else {
                     itemcount--;
                 };
-                $(".item").eq(itemcount).show();
+                $(".item").eq(itemcount).css('display','block').css('transform','scale(1)');
             }
+        }else{
+            // $(".item").eq(itemcount).css('display','block');
         }
+    });
+    $(".item").bind('touchmove',function(e){
+        var movewidth = e.originalEvent.changedTouches[0].screenX- itemwidth;
+        var changewidth = winWidth / 12;
+        var realwidth = Math.abs(movewidth);
+        var newitem = 0;
+        var scale = 0;
+        $(".item").animate({ fontsize: movewidth }, {
+                duration: 100,
+                easing: "linear",
+                queue: false,
+                step: function(now, fx) {
+                    if (movewidth > 0) {
+                       newitem = itemcount + 1; 
+                    }else if(movewidth < 0){
+                        newitem =itemcount -1;
+                    };
+                    scale = now / itemwidth;
+                    $(".item").eq(newitem).css('display','block').css('transform','scale('+scale+')');
+                    $(".item").eq(itemcount).css('z-index','9').css('transform','translateX(' + now + 'px)');
+                    
+                }
+        });
     });
     $(".offertype").bind('click', function() {
         $(".specificOffer").css('width', winWidth * 0.9);
         $(this).children(".specificOffer").css('display', 'inline-block');
-    })
+    });
 })

@@ -74,12 +74,18 @@ header {
 }
 
 .item{
+	display: none;
 	background-color: white;
 	border-radius: 5px;
+	padding:5px;
 	height: 100%;
 	width: 92%;
 	position: absolute;
 	float: left;
+}
+
+.item:first-child{
+	display: block;
 }
 
 .item img {
