@@ -3,23 +3,22 @@ $(document).ready(function() {
     var count = 0;
     var winHeight = $(window).height();
     var winWidth = $(window).width();
-    var Height = winHeight + "px";
     var distancex = winHeight / 2 - 200 + "px";
-    var distancey = winWidth / 2 - 200 + "px";
     var showpic = winWidth / 2 - 90 + "px";
     var project = 0;
     var showtype = 'back';
     var showpage = 0;
     var showheight = 0;
     var changecount = 0;
+
     function screenset() {
         winHeight = $(window).height();
-        winWidth = $(window).width();
-        Height = winHeight + "px";
         distancex = winHeight / 2 - 200 + "px";
-        distancey = winWidth / 2 - 200 + "px";
         showpic = winWidth / 2 - 90 + "px";
-        $(".showpage").height(winHeight);
+        $("body").css('height', winHeight);//重置整体高度
+        $(".showpage").height(winHeight); //重置页面高度
+        $(".myself").css('top', distancex);
+        $(".showpic").css('left', showpic);
     };
     $("body").css('height', winHeight);
     // 屏幕尺寸变化样式控制
@@ -136,15 +135,15 @@ $(document).ready(function() {
     } //点击翻页
     function rollchange(number) {
         if (number == 1) {
-            $(".sidebar").attr('id','roll-one');
+            $(".sidebar").attr('id', 'roll-one');
         } else if (number == 2) {
-            $(".sidebar").attr('id','roll-two');
+            $(".sidebar").attr('id', 'roll-two');
         } else if (number == 3) {
-            $(".sidebar").attr('id','roll-three');
+            $(".sidebar").attr('id', 'roll-three');
         } else if (number == 4) {
-            $(".sidebar").attr('id','roll-four');
+            $(".sidebar").attr('id', 'roll-four');
         } else {
-            $(".sidebar").attr('id','roll-zero');
+            $(".sidebar").attr('id', 'roll-zero');
         }
     }
     for (var i = 0; i <= 2; i++) {
@@ -209,27 +208,27 @@ $(document).ready(function() {
     $(".rightspace").bind('mouseover', function() {
         switch (project) {
             case 0:
-                $(".rotate").attr('id','right-one');
+                $(".rotate").attr('id', 'right-one');
                 project++;
                 break;
             case 1:
-                $(".rotate").attr('id','right-two');
+                $(".rotate").attr('id', 'right-two');
                 project++;
                 break;
             case 2:
-                $(".rotate").attr('id','right-three');
+                $(".rotate").attr('id', 'right-three');
                 project++;
                 break;
             case 3:
-                $(".rotate").attr('id','right-four');
+                $(".rotate").attr('id', 'right-four');
                 project++;
                 break;
             case 4:
-                $(".rotate").attr('id','right-five');
+                $(".rotate").attr('id', 'right-five');
                 project++;
                 break;
             case 5:
-                $(".rotate").attr('id','right-six');
+                $(".rotate").attr('id', 'right-six');
                 project = 0;
                 break;
 
@@ -238,27 +237,27 @@ $(document).ready(function() {
     $(".leftspace").bind('mouseover', function() {
         switch (project) {
             case 0:
-                $(".rotate").attr('id','left-one');
+                $(".rotate").attr('id', 'left-one');
                 project = 5;
                 break;
             case 1:
-                $(".rotate").attr('id','left-two');
+                $(".rotate").attr('id', 'left-two');
                 project--;
                 break;
             case 2:
-                $(".rotate").attr('id','left-five');
+                $(".rotate").attr('id', 'left-five');
                 project--;
                 break;
             case 3:
-                $(".rotate").attr('id','left-four');
+                $(".rotate").attr('id', 'left-four');
                 project--;
                 break;
             case 4:
-                $(".rotate").attr('id','left-five');
+                $(".rotate").attr('id', 'left-five');
                 project--;
                 break;
             case 5:
-                $(".rotate").attr('id','left-six');
+                $(".rotate").attr('id', 'left-six');
                 project--;
                 break;
         }
@@ -286,21 +285,22 @@ $(document).ready(function() {
         showpage++;
         pagechange(showpage);
     });
-    $(".showCase").bind('touchstart', function(e) {
+    $(".showpage").bind('touchstart', function(e) {
         showheight = e.originalEvent.changedTouches[0].screenY;
     });
-    $(".showCase").bind('touchmove',function(e){
+    $(".showpage").bind('touchmove', function(e) {
         screenset();
     })
-    $(".showCase").bind('touchend', function(e) {
+    var showscoll = 0;
+    $(".showpage").bind('touchend', function(e) {
         var moveheight = e.originalEvent.changedTouches[0].screenY - showheight;
         var changelenth = winHeight / 12;
         var reallenth = Math.abs(moveheight);
+        screenset();
         if (reallenth > changelenth) {
             if (moveheight > 0) {
-                screenset();
-                showpage = showpage - winHeight;
-                $(".wapper").animate({ fontsize: showpage }, {
+                showscoll = showscoll - winHeight;
+                $(".wapper").animate({ fontsize: showscoll }, {
                     duration: 500,
                     easing: "linear",
                     queue: false,
@@ -308,11 +308,10 @@ $(document).ready(function() {
                         $(window).scrollTop(now);
                     },
                 });
-                $(window).scrollTop(showpage);
+                $(window).scrollTop(showscoll);
             } else if (moveheight < 0) {
-                screenset();
-                showpage = showpage + winHeight;
-                $(".wapper").animate({ fontsize: showpage }, {
+                showscoll = showscoll + winHeight;
+                $(".wapper").animate({ fontsize: showscoll }, {
                     duration: 500,
                     easing: "linear",
                     queue: false,
@@ -338,62 +337,62 @@ $(document).ready(function() {
         var realwidth = Math.abs(movewidth);
         if (realwidth > changewidth) {
             if (movewidth > 0) {
-                $(".item").eq(itemcount).css('display','none').css('long','0').css('fontsize','0').css('z-index','1').css('transform','translateX(0) scale(0)');
+                $(".item").eq(itemcount).css('display', 'none').css('long', '0').css('fontsize', '0').css('z-index', '1').css('transform', 'translateX(0) scale(0)');
                 if (itemcount == 5) {
                     itemcount = 0;
                 } else {
                     itemcount++;
                 };
-                $(".item").eq(itemcount).animate({long:1},{
-                    duration:500,
-                    easing:'linear',
-                    queue:false,
-                    step:function(now,fx){
-                        $(".item").eq(itemcount).css('display','block').css('transform','scale('+ now +') translateX(0)')
+                $(".item").eq(itemcount).animate({ long: 1 }, {
+                    duration: 500,
+                    easing: 'linear',
+                    queue: false,
+                    step: function(now, fx) {
+                        $(".item").eq(itemcount).css('display', 'block').css('transform', 'scale(' + now + ') translateX(0)')
                     }
                 });
             } else if (movewidth < 0) {
-                $(".item").eq(itemcount).css('display','none').css('long','0').css('fontsize','0').css('z-index','1').css('transform','translateX(0) scale(0)');
+                $(".item").eq(itemcount).css('display', 'none').css('long', '0').css('fontsize', '0').css('z-index', '1').css('transform', 'translateX(0) scale(0)');
                 if (itemcount == 0) {
                     itemcount = 5;
                 } else {
                     itemcount--;
                 };
-                $(".item").eq(itemcount).animate({long : 1},{
-                    duration:500,
-                    easing:'linear',
-                    queue:false,
-                    step:function(now,fx){
-                        $(".item").eq(itemcount).css('display','block').css('transform','scale('+ now +') translateX(0)')
+                $(".item").eq(itemcount).animate({ long: 1 }, {
+                    duration: 500,
+                    easing: 'linear',
+                    queue: false,
+                    step: function(now, fx) {
+                        $(".item").eq(itemcount).css('display', 'block').css('transform', 'scale(' + now + ') translateX(0)')
                     }
                 });
             }
-        }else{
-            $(".item").eq(itemcount).css('display','block').css('z-index','1').css('transform','translateX(0)');
-            $(".item").eq(newitem).css('display','none').css('transform','translateX(0) scale(0)');
+        } else {
+            $(".item").eq(itemcount).css('display', 'block').css('z-index', '1').css('transform', 'translateX(0)');
+            $(".item").eq(newitem).css('display', 'none').css('transform', 'translateX(0) scale(0)');
         }
     });
     // 重点注意lang,fontsize在animation中的复用，即注意重置
     var newitem = 0
-    $(".item").bind('touchmove',function(e){
-        var movewidth = e.originalEvent.changedTouches[0].screenX- itemwidth;
+    $(".item").bind('touchmove', function(e) {
+        var movewidth = e.originalEvent.changedTouches[0].screenX - itemwidth;
         var changewidth = winWidth / 12;
         var realwidth = Math.abs(movewidth);;
         var scale = 0;
         $(".item").eq(itemcount).animate({ fontsize: movewidth }, {
-                duration: 100,
-                easing: "linear",
-                queue: false,
-                step: function(now, fx) {
-                    if (movewidth > 0) {
-                       newitem = itemcount + 1; 
-                    }else if(movewidth < 0){
-                        newitem =itemcount -1;
-                    };
-                    scale = Math.abs(now) / winWidth ;
-                    $(".item").eq(itemcount).css('z-index','9').css('transform','translateX(' + now + 'px)');
-                    
-                }
+            duration: 100,
+            easing: "linear",
+            queue: false,
+            step: function(now, fx) {
+                if (movewidth > 0) {
+                    newitem = itemcount + 1;
+                } else if (movewidth < 0) {
+                    newitem = itemcount - 1;
+                };
+                scale = Math.abs(now) / winWidth;
+                $(".item").eq(itemcount).css('z-index', '9').css('transform', 'translateX(' + now + 'px)');
+
+            }
         });
     });
     $(".offertype").bind('click', function() {
