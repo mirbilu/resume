@@ -335,7 +335,7 @@ $(document).ready(function() {
         var realwidth = Math.abs(movewidth);
         if (realwidth > changewidth) {
             if (movewidth > 0) {
-                $(".item").eq(itemcount).css('display','none').css('long','0').css('z-index','1').css('transform','translateX(0) scale(0)');
+                $(".item").eq(itemcount).css('display','none').css('long','0').css('fontsize','0').css('z-index','1').css('transform','translateX(0) scale(0)');
                 if (itemcount == 5) {
                     itemcount = 0;
                 } else {
@@ -350,7 +350,7 @@ $(document).ready(function() {
                     }
                 });
             } else if (movewidth < 0) {
-                $(".item").eq(itemcount).css('display','none').css('long','0').css('z-index','1').css('transform','translateX(0) scale(0)');
+                $(".item").eq(itemcount).css('display','none').css('long','0').css('fontsize','0').css('z-index','1').css('transform','translateX(0) scale(0)');
                 if (itemcount == 0) {
                     itemcount = 5;
                 } else {
@@ -370,6 +370,7 @@ $(document).ready(function() {
             $(".item").eq(newitem).css('display','none').css('transform','translateX(0) scale(0)');
         }
     });
+    // 重点注意lang,fontsize在animation中的复用，即注意重置
     var newitem = 0
     $(".item").bind('touchmove',function(e){
         var movewidth = e.originalEvent.changedTouches[0].screenX- itemwidth;
