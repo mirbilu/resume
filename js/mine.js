@@ -378,7 +378,7 @@ $(document).ready(function() {
                         $(window).scrollTop(now);
                     },
                 });
-                alert("下移");
+                // alert("下移");
             } else if (moveheight < 0) {
                 showscoll = showscoll + winHeight;
                 $(".wapper").animate({ fontsize: showscoll }, {
@@ -389,7 +389,7 @@ $(document).ready(function() {
                         $(window).scrollTop(now);
                     },
                 });
-                alert("上翻");
+                // alert("上翻");
             }
         };
     });
