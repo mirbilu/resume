@@ -398,7 +398,7 @@ $(document).ready(function() {
     $(".showpic img").bind('click', function() {
         if (person == 0) {
             $(".showpic img").animate({ height: winHeight/3 }, {
-                duration: 1000,
+                duration: 500,
                 easing: 'linear',
                 queue: false,
                 step: function(now, fx) {
@@ -410,7 +410,7 @@ $(document).ready(function() {
         } else {
             person = 0;
             $(".showpic img").removeClass('person').animate({ height: 120 }, {
-                duration: 1000,
+                duration: 500,
                 easing: 'linear',
                 queue: false,
                 step: function(now, fx) {
