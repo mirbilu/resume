@@ -10,17 +10,19 @@ $(document).ready(function() {
     var showpage = 0;
     var showheight = 0;
     var changecount = 0;
+    var sidewidth = 0;
+    var sidelenth = winWidth / 1.5;
 
     function screenset() {
         winHeight = $(window).height();
         distancex = winHeight / 2 - 200 + "px";
         showpic = winWidth / 2 - 90 + "px";
-        $("body").css('height', winHeight);//重置整体高度
+        $("body").css('height', winHeight); //重置整体高度
         $(".showpage").height(winHeight); //重置页面高度
         $(".myself").css('top', distancex);
         $(".showpic").css('left', showpic);
+        $(".sidenav").css('height', winHeight);
     };
-    $("body").css('height', winHeight);
     // 屏幕尺寸变化样式控制
     if (winWidth < 760) {
         $(".left").addClass('nav-logo-small');
@@ -30,7 +32,9 @@ $(document).ready(function() {
         $("header").css('width', winWidth);
         $("na").css('height', '30px').css('line-height', '30px');
         $("#reviewDetails").attr('cols', '39');
+        $(".sidenav").css('height', winHeight).css('width', sidelenth).css('left', -winWidth / 1.5);
     };
+    $("body").css('height', winHeight);
     $(".showpage").height(winHeight);
     $(".myself").css('top', distancex);
     $(".showpic").css('left', showpic);
@@ -76,6 +80,56 @@ $(document).ready(function() {
             });
             $(".advice-side-button").children('span').text("打开留言栏");
             showtype = 'back';
+        }
+    });
+    // 侧边导航栏设置
+    $(".menu-button").bind('click', function() {
+        $(".sidenav").css('display', 'block').animate({ left: 0 }, {
+            duration: 500,
+            easing: "linear",
+            queue: false,
+            step: function(now, fx) {
+                $(".sidenav").css('left', now + 'px');
+            },
+        });
+    });
+    $(".sidenav").bind('touchstart', function(e) {
+        sidewidth = e.originalEvent.changedTouches[0].screenX;
+    });
+    $(".sidenav").bind('touchmove', function(e) {
+        var movewidth = e.originalEvent.changedTouches[0].screenX - sidewidth;
+        if (movewidth < 0) {
+            $(".sidenav").animate({ left: movewidth }, {
+                duration: 100,
+                easing: "linear",
+                queue: false,
+                step: function(now, fx) {
+                    $(".sidenav").css('left', now + 'px');
+                },
+            });
+        }
+    });
+    $(".sidenav").bind('touchend', function(e) {
+        var movewidth = e.originalEvent.changedTouches[0].screenX - sidewidth;
+        var realwidth = Math.abs(movewidth);
+        if (realwidth > sidelenth / 2) {
+            $(".sidenav").css('display', 'block').animate({ left: -sidelenth }, {
+                duration: 500,
+                easing: "linear",
+                queue: false,
+                step: function(now, fx) {
+                    $(".sidenav").css('left', now + 'px');
+                },
+            });
+        } else {
+            $(".sidenav").css('display', 'block').animate({ left: 0 }, {
+                duration: 500,
+                easing: "linear",
+                queue: false,
+                step: function(now, fx) {
+                    $(".sidenav").css('left', now + 'px');
+                },
+            });
         }
     });
     // pc端页面切换
@@ -287,6 +341,14 @@ $(document).ready(function() {
     });
     $(".showpage").bind('touchstart', function(e) {
         showheight = e.originalEvent.changedTouches[0].screenY;
+        $(".sidenav").css('display', 'block').animate({ left: -sidelenth }, {
+            duration: 500,
+            easing: "linear",
+            queue: false,
+            step: function(now, fx) {
+                $(".sidenav").css('left', now + 'px');
+            },
+        });
     });
     $(".showpage").bind('touchmove', function(e) {
         screenset();
@@ -323,12 +385,38 @@ $(document).ready(function() {
         };
     });
     // 照片展开
+    var person = 0;
     $(".showpic img").bind('click', function() {
-        $(".showpic img").css('position', 'absolute').css('height', winHeight).css('width', winWidth).css('top', '0').css('border-radius', '0');
+        if (person == 0) {
+            $(".showpic img").addClass('person').animate({ height: winHeight }, {
+                duration: 1500,
+                easing: 'linear',
+                queue: false,
+                step: function(now, fx) {
+                    var picwidth = now * (winWidth / winHeight);
+                    var picradius = now / winHeight / 2;
+                    $(".showpic img").css('height', now).css('width', picwidth);
+                }
+            });
+            person = 1;
+        } else {
+            person = 0;
+            $(".showpic img").removeClass('person').animate({ height: 120 }, {
+                duration: 1500,
+                easing: 'linear',
+                queue: false,
+                step: function(now, fx) {
+                    var picradius = now - 120;
+                    $(".showpic img").css('height', now).css('width', now);
+                }
+            });;
+        }
+
     });
     // 作品切换
     $(".item").bind('touchstart', function(e) {
         itemwidth = e.originalEvent.changedTouches[0].screenX;
+        newitem = itemcount + 1;
     });
     var itemcount = 0
     $(".item").bind('touchend', function(e) {
