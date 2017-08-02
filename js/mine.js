@@ -232,16 +232,24 @@ $(document).ready(function() {
             rollchange(0);
         }
     });
+    // 联系方式展开
     $(".connect-part").bind('mouseover', function() {
         $(this).children(".barcode").css('display', 'block');
     });
     $(".connect-part").bind('mouseout', function() {
         $(this).children(".barcode").css('display', 'none');
     });
+    // 技能展示
     $(".offertype").bind('mouseover', function() {
+        if (winWidth < 760 ) {
+            $(".specificOffer").css('width', winWidth * 0.9);
+        };
         $(this).children(".specificOffer").css('display', 'block');
     });
     $(".offertype").bind('mouseout', function() {
+        if (winWidth < 760 ) {
+            $(".specificOffer").css('width', winWidth * 0.9);
+        };
         $(this).children(".specificOffer").css('display', 'none');
     });
     // 作品数据接收
@@ -349,6 +357,7 @@ $(document).ready(function() {
                 $(".sidenav").css('left', now + 'px');
             },
         });
+        $(".specificOffer").css('display','none');
     });
     $(".showpage").bind('touchmove', function(e) {
         screenset();
@@ -482,9 +491,5 @@ $(document).ready(function() {
 
             }
         });
-    });
-    $(".offertype").bind('click', function() {
-        $(".specificOffer").css('width', winWidth * 0.9);
-        $(this).children(".specificOffer").css('display', 'inline-block');
     });
 })

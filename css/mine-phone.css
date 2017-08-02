@@ -122,7 +122,8 @@ header {
     position: absolute;
     left: 5%;
     bottom: 42%;
-    height: 50px;
+    height: 100px;
+    font-size: 20px;
     background-color: white;
     border-radius: 9px;	
 }
