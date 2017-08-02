@@ -15,8 +15,6 @@ $(document).ready(function() {
 
     function screenset() {
         winHeight = $(window).height();
-        distancex = winHeight / 2 - 200 + "px";
-        showpic = winWidth / 2 - 90 + "px";
         $("body").css('height', winHeight); //重置整体高度
         $(".showpage").height(winHeight); //重置页面高度
         $(".myself").css('top', distancex);
@@ -25,6 +23,7 @@ $(document).ready(function() {
     };
     // 屏幕尺寸变化样式控制
     if (winWidth < 760) {
+        distancex = winHeight / 3 - 140;
         $(".left").addClass('nav-logo-small');
         $(".left img").css('display', 'none');
         $(".right").css('display', 'none');
@@ -241,13 +240,13 @@ $(document).ready(function() {
     });
     // 技能展示
     $(".offertype").bind('mouseover', function() {
-        if (winWidth < 760 ) {
+        if (winWidth < 760) {
             $(".specificOffer").css('width', winWidth * 0.9);
         };
         $(this).children(".specificOffer").css('display', 'block');
     });
     $(".offertype").bind('mouseout', function() {
-        if (winWidth < 760 ) {
+        if (winWidth < 760) {
             $(".specificOffer").css('width', winWidth * 0.9);
         };
         $(this).children(".specificOffer").css('display', 'none');
@@ -357,7 +356,7 @@ $(document).ready(function() {
                 $(".sidenav").css('left', now + 'px');
             },
         });
-        $(".specificOffer").css('display','none');
+        $(".specificOffer").css('display', 'none');
     });
     $(".showpage").bind('touchmove', function(e) {
         screenset();
@@ -397,27 +396,26 @@ $(document).ready(function() {
     var person = 0;
     $(".showpic img").bind('click', function() {
         if (person == 0) {
-            $(".showpic img").addClass('person').animate({ height: winHeight }, {
-                duration: 1500,
+            $(".showpic img").animate({ height: winHeight/3 }, {
+                duration: 1000,
                 easing: 'linear',
                 queue: false,
                 step: function(now, fx) {
-                    var picwidth = now * (winWidth / winHeight);
-                    var picradius = now / winHeight / 2;
-                    $(".showpic img").css('height', now).css('width', picwidth);
-                }
+                    var picradius =(1-(now - 120)/(winHeight-120))*60;
+                    $(".showpic img").css('height', now).css('width', now).css('border-radius',picradius+'px');
+                },
             });
             person = 1;
         } else {
             person = 0;
             $(".showpic img").removeClass('person').animate({ height: 120 }, {
-                duration: 1500,
+                duration: 1000,
                 easing: 'linear',
                 queue: false,
                 step: function(now, fx) {
-                    var picradius = now - 120;
-                    $(".showpic img").css('height', now).css('width', now);
-                }
+                    var picradius =(1-(now - 120)/(winHeight-120))*60;
+                    $(".showpic img").css('height', now).css('width', now).css('border-radius',picradius+'px');
+                },
             });;
         }
 
