@@ -346,6 +346,7 @@ $(document).ready(function() {
         showpage++;
         pagechange(showpage);
     });
+    // 拖动翻页
     $(".showpage").bind('touchstart', function(e) {
         showheight = e.originalEvent.changedTouches[0].screenY;
         $(".sidenav").css('display', 'block').animate({ left: -sidelenth }, {
@@ -363,14 +364,15 @@ $(document).ready(function() {
     })
     var showscoll = 0;
     $(".showpage").bind('touchend', function(e) {
+        screenset();
         var moveheight = e.originalEvent.changedTouches[0].screenY - showheight;
         var changelenth = winHeight / 12;
         var reallenth = Math.abs(moveheight);
-        screenset();
         if (reallenth > changelenth) {
             if (moveheight > 0) {
-                showscoll = showscoll - winHeight;
-                $(".wapper").animate({ fontsize: showscoll }, {
+                showscoll = showscoll - 1;
+                var scollheiht = showscoll * winHeight;
+                $(".wapper").animate({ fontsize: scollheiht }, {
                     duration: 500,
                     easing: "linear",
                     queue: false,
@@ -380,8 +382,9 @@ $(document).ready(function() {
                 });
                 // alert("下移");
             } else if (moveheight < 0) {
-                showscoll = showscoll + winHeight;
-                $(".wapper").animate({ fontsize: showscoll }, {
+                showscoll = showscoll + 1;
+                var scollheiht = showscoll * winHeight;
+                $(".wapper").animate({ fontsize: scollheiht }, {
                     duration: 500,
                     easing: "linear",
                     queue: false,
