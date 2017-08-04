@@ -366,7 +366,7 @@ $(document).ready(function() {
     $(".showpage").bind('touchend', function(e) {
         screenset();
         var moveheight = e.originalEvent.changedTouches[0].screenY - showheight;
-        var changelenth = winHeight / 12;
+        var changelenth = winHeight / 8;
         var reallenth = Math.abs(moveheight);
         if (reallenth > changelenth) {
             if (moveheight > 0) {
@@ -394,6 +394,16 @@ $(document).ready(function() {
                 });
                 // alert("上翻");
             }
+        }else{
+            var scollheiht = showscoll * winHeight;
+            $(".wapper").animate({ fontsize: scollheiht }, {
+                duration: 200,
+                easing: "linear",
+                queue: false,
+                step: function(now, fx) {
+                    $(window).scrollTop(now);
+                },
+            });
         };
     });
     // 照片展开
